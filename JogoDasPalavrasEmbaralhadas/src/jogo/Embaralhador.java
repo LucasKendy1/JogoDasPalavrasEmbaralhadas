@@ -1,6 +1,6 @@
 package jogo;
 
 public interface Embaralhador {
-	public void embaralhador1();
-	public void embaralhador2();
+	public String embaralhador1();
+	public String embaralhador2();
 }

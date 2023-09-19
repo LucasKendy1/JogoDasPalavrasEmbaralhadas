@@ -6,18 +6,8 @@ import java.util.Scanner;
 class Principal {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		Principal p = new Principal();
-		BancoDePalavras b = new BancoDePalavras();
-		FabricaEmbaralhadores f = new FabricaEmbaralhadores(b);
-		//p.perguntaEntrada();
-		//p.escreveSaida();
-		b.sorteaPalavra();
-		System.out.println("Embaralhador sorteado: "+ f.sorteaEmbaralhador());
-		System.out.println("A palavra sorteada foi: "+ b.getPalavra());
-		f.embaralhaPalavra();
-		System.out.println("tamanho da palavra: "+ f.getTamanhoPalavra());
-		System.out.println("A palavra sorteada foi: "+ b.getPalavra().charAt(0));
-		
+		FabricaMecanicaDoJogo mec = new FabricaMecanicaDoJogo();
+		mec.comecarJogo();
 	}
 	
 	private String entrada;
@@ -25,11 +15,25 @@ class Principal {
 	public void perguntaEntrada() {
 		System.out.println("Sua tentativa: ");
 		Scanner in = new Scanner(System.in);
-		this.entrada = in.nextLine();
+		this.setEntrada(in.nextLine());
 	}
 	
-	public void escreveSaida() {
-		System.out.println(entrada);
+	public void escreveSaida(String s) {
+		System.out.println(s+"\r");
+	}
+	
+	public void escreveVariavel(String s) {
+		System.out.println(s+"\r");
+	}
+	public void escreveVariavelInteira(int n) {
+		System.out.println(n+"\r");
+	}
+	public String getEntrada() {
+		return entrada;
+	}
+
+	public void setEntrada(String entrada) {
+		this.entrada = entrada;
 	}
 
 }

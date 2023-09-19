@@ -22,14 +22,14 @@ public class BancoDePalavras {
 	
 	public void leArquivo() throws FileNotFoundException{
 		File file = new File("/LUCAS 2023/JAVA/JogoDasPalavrasEmbaralhadas/banco-de-palavras.txt");
-		Scanner scan = new Scanner(file);
-		
-		while(scan.hasNextLine()) {
-			//System.out.println(scan.nextLine());
-			palavras.put(getIndex(), scan.nextLine());
-			setIndex(getIndex()+1);
+		try (Scanner scan = new Scanner(file)) {
+			while(scan.hasNextLine()) {
+				//System.out.println(scan.nextLine());
+				palavras.put(getIndex(), scan.nextLine());
+				setIndex(getIndex()+1);
+			}
+			//printHash(palavras);
 		}
-		//printHash(palavras);
 	}
 	
 	//Teste de leitura de arquivo .txt
